@@ -1,7 +1,7 @@
-import { configure } from '@storybook/react';
+// .storybook/config.js
 
-const req = require.context('../stories', true, /.stories.tsx$/);
-
-function loadStories() {
-    req.keys().forEach(req);
-  }configure(loadStories, module);
+import { configure, addDecorator } from '@storybook/react';
+import ThemeDecorator from './themeDecorator';
+// automatically import all files ending in *.stories.tsx
+configure(require.context('../stories', true, /\.stories\.tsx?$/), module);
+addDecorator(ThemeDecorator);

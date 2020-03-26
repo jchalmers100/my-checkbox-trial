@@ -1,6 +1,7 @@
 // Checkbox.stories.js
 import React from 'react';
 import Checkbox from '../src/components/Checkbox/Checkbox';
+import { action } from '@storybook/addon-actions';
 
 
 export default {

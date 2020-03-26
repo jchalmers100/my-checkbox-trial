@@ -5,6 +5,7 @@ import { FunctionComponent } from 'react';
 type CheckboxProps = {
     checked?: boolean;
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    //label: string;
 };
 
 const CheckboxContainer = styled.div`
