@@ -1,17 +1,27 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from 'react'
+import { render } from 'react-dom'
+import Checkbox from './components/Checkbox/Checkbox'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+class App extends React.Component {
+  state = { checked: false }
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  handleCheckboxChange = (event: { target: { checked: any } }) => {
+    this.setState({ checked: event.target.checked })
+  }
+
+  render() {
+    return (
+      <div style={{ fontFamily: 'system-ui' }}>
+        <label>
+          <Checkbox
+            checked={this.state.checked}
+            onChange={this.handleCheckboxChange}
+          />
+          <span style={{ marginLeft: 8 }}>Label Text</span>
+        </label>
+      </div>
+    )
+  }
+}
+
+render(<App />, document.getElementById('root'))
